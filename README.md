@@ -49,29 +49,27 @@ A comprehensive task management system built with Spring Boot, featuring user ma
 ## 🔗 API Endpoints
 
 ### User Management
-POST /api/users # Create new user
-GET /api/users # Get all users
-GET /api/users/{id} # Get user by ID
-PUT /api/users/{id} # Update user
-DELETE /api/users/{id} # Delete user (cascades to projects/tasks)
+POST /api/users                                    # Create new user
+GET /api/users                                     # Get all users
+GET /api/users/{id}                                # Get user by ID
+PUT /api/users/{id}                                # Update user
+DELETE /api/users/{id}                             # Delete user (cascades to projects/tasks)
 
-text
 
 ### Project Management
-POST /api/users/{userId}/projects # Create project
-GET /api/users/{userId}/projects # Get user's projects
-GET /api/users/{userId}/projects/{projectId} # Get specific project
-PUT /api/users/{userId}/projects/{projectId} # Update project
-DELETE /api/users/{userId}/projects/{projectId} # Delete project
+POST /api/users/{userId}/projects                  # Create project
+GET /api/users/{userId}/projects                   # Get user's projects
+GET /api/users/{userId}/projects/{projectId}       # Get specific project
+PUT /api/users/{userId}/projects/{projectId}       # Update project
+DELETE /api/users/{userId}/projects/{projectId}    # Delete project
 
-text
 
 ### Task Management (Coming Soon)
-POST /api/projects/{projectId}/tasks # Create task
-GET /api/projects/{projectId}/tasks # Get project tasks
-GET /api/projects/{projectId}/tasks/{taskId} # Get specific task
-PUT /api/projects/{projectId}/tasks/{taskId} # Update task
-DELETE /api/projects/{projectId}/tasks/{taskId} # Delete task
+POST /api/projects/{projectId}/tasks               # Create task
+GET /api/projects/{projectId}/tasks                # Get project tasks
+GET /api/projects/{projectId}/tasks/{taskId}       # Get specific task
+PUT /api/projects/{projectId}/tasks/{taskId}       # Update task
+DELETE /api/projects/{projectId}/tasks/{taskId}    # Delete task
 
 ## ⚙️ Setup & Installation
 
@@ -87,12 +85,8 @@ DELETE /api/projects/{projectId}/tasks/{taskId} # Delete task
 git clone https://github.com/aadii-19/TaskManager-.git
 cd TaskManager-
 
-text
-
 2. **Database Setup**
 CREATE DATABASE taskdb;
-
-text
 
 3. **Configure application.properties**
 - spring.application.name=taskManager
@@ -105,8 +99,6 @@ text
 
 4. **Run the application**
 mvn spring-boot:run
-
-text
 
 5. **Access the API**
 - Base URL: `http://localhost:8080`
@@ -126,8 +118,6 @@ Content-Type: application/json
 "role": "USER"
 }
 
-text
-
 ### Create a Project
 POST http://localhost:8080/api/users/1/projects
 Content-Type: application/json
@@ -136,8 +126,6 @@ Content-Type: application/json
 "name": "Mobile App Development",
 "description": "Building a React Native app for task management"
 }
-
-text
 
 ## 👨‍💻 Author
 
