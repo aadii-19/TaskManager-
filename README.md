@@ -73,8 +73,6 @@ GET /api/projects/{projectId}/tasks/{taskId} # Get specific task
 PUT /api/projects/{projectId}/tasks/{taskId} # Update task
 DELETE /api/projects/{projectId}/tasks/{taskId} # Delete task
 
-text
-
 ## ⚙️ Setup & Installation
 
 ### Prerequisites
@@ -97,14 +95,13 @@ CREATE DATABASE taskdb;
 text
 
 3. **Configure application.properties**
-spring.application.name=taskManager
-spring.datasource.url=jdbc:mysql://localhost:3306/taskdb?useSSL=false&serverTimezone=UTC
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+- spring.application.name=taskManager
+- spring.datasource.url=jdbc:mysql://localhost:3306/taskdb?useSSL=false&serverTimezone=UTC
+- spring.datasource.username=your_username
+- spring.datasource.password=your_password
+- spring.jpa.hibernate.ddl-auto=update
+- spring.jpa.show-sql=true
 
-text
 
 4. **Run the application**
 mvn spring-boot:run
