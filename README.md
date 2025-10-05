@@ -49,27 +49,27 @@ A comprehensive task management system built with Spring Boot, featuring user ma
 ## 🔗 API Endpoints
 
 ### User Management
-POST /api/users                                    # Create new user
-GET /api/users                                     # Get all users
-GET /api/users/{id}                                # Get user by ID
-PUT /api/users/{id}                                # Update user
-DELETE /api/users/{id}                             # Delete user (cascades to projects/tasks)
+- POST /api/users                                    # Create new user
+- GET /api/users                                     # Get all users
+- GET /api/users/{id}                                # Get user by ID
+- PUT /api/users/{id}                                # Update user
+- DELETE /api/users/{id}                             # Delete user (cascades to projects/tasks)
 
 
 ### Project Management
-POST /api/users/{userId}/projects                  # Create project
-GET /api/users/{userId}/projects                   # Get user's projects
-GET /api/users/{userId}/projects/{projectId}       # Get specific project
-PUT /api/users/{userId}/projects/{projectId}       # Update project
-DELETE /api/users/{userId}/projects/{projectId}    # Delete project
+- POST /api/users/{userId}/projects                  # Create project
+- GET /api/users/{userId}/projects                   # Get user's projects
+- GET /api/users/{userId}/projects/{projectId}       # Get specific project
+- PUT /api/users/{userId}/projects/{projectId}       # Update project
+- DELETE /api/users/{userId}/projects/{projectId}    # Delete project
 
 
 ### Task Management (Coming Soon)
-POST /api/projects/{projectId}/tasks               # Create task
-GET /api/projects/{projectId}/tasks                # Get project tasks
-GET /api/projects/{projectId}/tasks/{taskId}       # Get specific task
-PUT /api/projects/{projectId}/tasks/{taskId}       # Update task
-DELETE /api/projects/{projectId}/tasks/{taskId}    # Delete task
+- POST /api/projects/{projectId}/tasks               # Create task
+- GET /api/projects/{projectId}/tasks                # Get project tasks
+- GET /api/projects/{projectId}/tasks/{taskId}       # Get specific task
+- PUT /api/projects/{projectId}/tasks/{taskId}       # Update task
+- DELETE /api/projects/{projectId}/tasks/{taskId}    # Delete task
 
 ## ⚙️ Setup & Installation
 
