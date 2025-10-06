@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -23,6 +25,8 @@ public class UserController {
         this.service = service;
     }
 
+    //  -------------------------- REGISTER USER --------------------------------
+    //  -------------------------------------------------------------------------
     @PostMapping("/users/register")
     public ResponseEntity<?> registerUser(@RequestBody User user){
         try {
@@ -34,6 +38,8 @@ public class UserController {
         }
     }
 
+    //  -------------------------- GET USER -----------------------------------
+    //  -----------------------------------------------------------------------
     @GetMapping("/users")
     public ResponseEntity<?> getUsers(@RequestBody User user){
         if(service.isAdmin(user)){
@@ -49,7 +55,20 @@ public class UserController {
         }
     }
 
-    //Delete User
-
+    //  -------------------------- DELETE USER --------------------------------
+    //  -----------------------------------------------------------------------
+    @DeleteMapping("/users/{userId}")
+    public ResponseEntity<?> deleteUserById(@PathVariable long userId){
+        try{
+            service.deleteUserById(userId);
+            Map<String, String> body = new HashMap<>();
+            body.put("message","User Deleted Successfully!");
+            return new ResponseEntity<>(body, HttpStatus.OK);
+        } catch (Exception e) {
+            Map<String, String> body = new HashMap<>();
+            body.put("message","Faced some Error "+e.getMessage());
+            return new ResponseEntity<>(body, HttpStatus.OK);
+        }
+    }
 
 }

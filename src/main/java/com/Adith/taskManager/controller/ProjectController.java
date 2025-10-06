@@ -2,7 +2,6 @@ package com.Adith.taskManager.controller;
 
 
 import com.Adith.taskManager.entity.Project;
-import com.Adith.taskManager.entity.User;
 import com.Adith.taskManager.service.ProjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users/{userId}")
 public class ProjectController {
 
     private final ProjectService projService;
@@ -22,15 +21,19 @@ public class ProjectController {
         this.projService = projService;
     }
 
-    @PostMapping("/users/{userId}/projects")
+    //  -------------------------- ADD PROJECT ----------------------------------
+    //  -------------------------------------------------------------------------
+    @PostMapping("/projects")
     public ResponseEntity<?> addProject(@PathVariable long userId,@RequestBody Project project){
         Project proj = projService.addProject(userId,project);
         System.out.println("Project added Successfully ");
         return new ResponseEntity<>(proj, HttpStatus.OK);
     }
 
-    @GetMapping("/users/{userId}/projects")   //the project in the end is not technically required
-                                               // but get data of user but of what so project is for understanding and clarity purpose.
+    //  ---------------------- GET PROJECT BY USERID ----------------------------
+    //  -------------------------------------------------------------------------
+    @GetMapping("/projects")
+    //the project in the end is not technically required but get data of user but of what so project is for understanding and clarity purpose.
     public ResponseEntity<List<Project>> getProject(@PathVariable int userId){
         try{
             List<Project> projectList = projService.getProject(userId);
@@ -42,8 +45,9 @@ public class ProjectController {
     }
 
 
-    // getting Project by id
-    @GetMapping("/users/{userId}/projects/{projectId}")
+    //  --------------------- GET PROJECT BY PROJECT_ID -------------------------
+    //  -------------------------------------------------------------------------
+    @GetMapping("/projects/{projectId}")
     public ResponseEntity<?> getProjectById(@PathVariable long userId, @PathVariable long projectId){
         try {
             Project project = projService.getProjectById(userId, projectId);
@@ -53,8 +57,9 @@ public class ProjectController {
         }
     }
 
-    // update project by id
-    @PutMapping("/users/{userId}/projects/{projectId}")
+    //  ------------------ UPDATE PROJECT BY PROJECT_ID -------------------------
+    //  -------------------------------------------------------------------------
+    @PutMapping("/projects/{projectId}")
     public ResponseEntity<?> updateProjectById(@PathVariable long userId, @PathVariable long projectId, @RequestBody Project proj){
         try{
             Project project = projService.updateProjectById(userId, projectId, proj);
@@ -69,8 +74,9 @@ public class ProjectController {
         }
     }
 
-    //Deleting the project
-    @DeleteMapping("/users/{userId}/projects/{projectId}")
+    //  --------------------- DELETE PROJECT BY PROJECT_ID ----------------------
+    //  -------------------------------------------------------------------------
+    @DeleteMapping("/projects/{projectId}")
     public ResponseEntity<?> deleteById(@PathVariable long userId, @PathVariable long projectId){
         try{
             projService.deleteByUserId(userId,projectId);

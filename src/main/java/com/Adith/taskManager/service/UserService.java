@@ -25,4 +25,13 @@ public class UserService {
     public Boolean isAdmin(User user){
         return user.getRole() == Role.ADMIN;
     }
+
+    public User getUserById(long userId) {
+        return userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User Not Found"));
+    }
+
+    public void deleteUserById(long userId) {
+        userRepo.deleteById(userId);
+    }
 }
